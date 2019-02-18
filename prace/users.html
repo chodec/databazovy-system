@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="css/modal.css">
+    <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-dark">
+    <div class="container">
+        <a class="navbar-brand float-left" href="index.html">O SIRS.CZ</a>
+        <a class="navbar-brand float-right" href="#">Přihlášení</a>
+    </div>
+</nav>
+<div class="sirs">
+    <div class="container">
+        <a href="#"><img src="img/logo-sirs.png"></a>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-lg-2 d-none d-lg-inline-block">
+            <ul class="nav flex-column">
+                <li class="nav-item heading"> Kurzy, školení</li>
+                <li class="nav-item">
+                    <a href="#"><span class="fa fa-fw fa-share-alt"></span> Kategorie</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><span class="fa fa-rss-square"></span> Kurzy </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><span class="fa fa-plug"></span> Zápisy</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><span class="fa fa-calendar-alt"></span> Rozvrhy kurzů</a>
+                </li>
+                <li class="nav-item heading">
+                    Ostatní
+                </li>
+                <li class="nav-item">
+                    <a href="#"><span class="fa fa-user-alt"></span> Zápis do prvních tříd</a>
+                </li>
+                <li class="nav-item heading">Nastavení</li>
+                <li class="nav-item">
+                    <a href="#"><span class="fa fa-university"></span> Školy</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><span class="fa fa-users"></span> Uživatelé</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><span class="fa fa-chart-line"></span> Statistiky</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-lg-10 col-xs-12">
+            <button id="myBtn" type="button" onclick="add" class="btn btn-sm btn-success"><span class="fa fa-plus"></span> Přidat uživatele</button>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Přidání nového uživatele</h3>
+                        <span class="close">&times;</span>
+                    </div>
+                    <div class="modal-body container">
+                        <form>
+                            <div class="form-group row">
+                                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Heslo</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="Heslo">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputName" class="col-sm-2 col-form-label">Jméno</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputName" placeholder="Jméno">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputSurname" class="col-sm-2 col-form-label">Příjmení</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputSurname" placeholder="Příjmení">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPhone" class="col-sm-2 col-form-label">Telefon</label>
+                                <div class="col-sm-10">
+                                    <input type="tel" class="form-control" id="inputPhone" placeholder="Telefon">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" for="inputSchool">Škola</label>
+                                <div class="col-sm-10">
+                                    <select class="custom-select mr-sm-2" id="inputSchool">
+                                        <option selected>Škola</option>
+                                        <option value="1">název školy</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <legend class="col-form-label col-sm-2 pt-0">Oprávnění</legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="superadmin">
+                                            <label class="form-check-label" for="gridRadios1">
+                                                Super admin
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="admin">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                Admin
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="user" checked>
+                                            <label class="form-check-label" for="gridRadios2">
+                                                Uživatel
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                                    <button type="button" id="createUser" class="btn btn-primary" onclick="addUser()"><span class="fa fa-check"></span> Uložit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th style="width: 118px;">Akce</th>
+                    <th>Email</th>
+                    <th>Jméno</th>
+                    <th class="hidden">Škola</th>
+                    <th class="hidden">Oprávnění</th>
+
+                </tr>
+                <tr class="filterRow">
+                    <td>
+                        <button class="btn btn-xs btn-success"><span class="fa fa-fw fa-trash-alt"></span></a>  </button>
+                        <button class="btn btn-xs btn-success"><span class="fa fa-fw fa-search"></span></button>
+                    </td>
+                    <td>
+                        <input type="text" name="email" class="form-control input-sm" placeholder="Email" value>
+                    </td>
+                    <td>
+                        <input type="text" name="name" class="form-control input-sm" placeholder="Jméno" value>
+                    </td>
+                    <td class="hidden">
+                        <select type="text" name="school" class="form-control input-sm" placeholder="Škola" value>
+                            <option>Škola</option>
+                        </select>
+                    </td>
+                    <td class="hidden">
+                        <select type="text" name="authorization" class="form-control input-sm" placeholder="Oprávnění" value>
+                            <option>Oprávnění</option>
+                        </select>
+                    </td>
+                </tr>
+                </thead>
+                <tbody id="display">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        <a class="float-left" href="#">Školní internetový registrační systém SIRS </a>
+        <span class="float-left"> | </span>
+        <a class="float-left" href="#" > Zásady ochrany osobních dat</a>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="js/modal.js"></script>
+</body>
+</html>
